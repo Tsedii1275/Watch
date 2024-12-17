@@ -5,7 +5,7 @@ public delegate void StopwatchEventHandler(string message);
 
 public class Stopwatch
 {
-    private System.Timers.Timer timer; // Fully qualified Timer
+    private System.Timers.Timer timer; 
     private TimeSpan timeElapsed;
     public bool IsRunning { get; private set; }
 
@@ -15,7 +15,7 @@ public class Stopwatch
 
     public Stopwatch()
     {
-        timer = new System.Timers.Timer(1000); // Tick every second
+        timer = new System.Timers.Timer(1000); 
         timer.Elapsed += Tick;
         timeElapsed = TimeSpan.Zero;
         IsRunning = false;
@@ -62,8 +62,7 @@ class Program
     static void Main(string[] args)
     {
         Stopwatch stopwatch = new Stopwatch();
-
-        // Subscribe to events
+        
         stopwatch.OnStarted += MessageHandler;
         stopwatch.OnStopped += MessageHandler;
         stopwatch.OnReset += MessageHandler;
